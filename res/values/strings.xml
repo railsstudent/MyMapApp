@@ -16,9 +16,13 @@
     <string name="aboutme">About Me</string>
     <string name="phoneNo">Phone #:</string>
     <string name="phoneValue">(852) 91600987</string>
+    <string name="phoneValue1">91600987</string>
     <string name="email">Email:</string>
-    <string name="emailValue">cleung334@gmail.\ncom</string>
+    <string name="emailValue">cleung334@gmail.com</string>
     <string name="blog">Blog:</string>
-    <string name="blogValue">http://www.bluesky\nconnie.com</string>
-
+    <string name="blogValue"><a href="http://www.blueskyconnie.com">http://www.blueskyconnie.com</a></string>
+    <string name="name">Name:</string>
+    <string name="nameValue">Connie Leung</string>
+    <string name="btn_dial_text">Call Immediately</string>
+    <string name="btn_send_email">Send Email</string>
 </resources>

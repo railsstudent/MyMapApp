@@ -15,4 +15,8 @@
     <string name="phoneNo">电话号码：</string>
   	<string name="aboutme">关于我</string>
   	<string name="blog">博客：</string>
+  	<string name="email">电子邮件：</string>
+  	 <string name="name">姓名：</string>
+  	 <string name="btn_dial_text">即时致电</string>
+  	 <string name="btn_send_email">电邮联络</string>
 </resources>
