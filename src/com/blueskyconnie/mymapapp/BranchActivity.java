@@ -80,7 +80,7 @@ public class BranchActivity extends FragmentActivity {
 				@Override
 				public View getInfoContents(Marker marker) {
 					View view = (View) getLayoutInflater().inflate(R.layout.layout_main_popup, null);
-					ImageView imgView = (ImageView) view.findViewById(R.id.imageView1);
+					ImageView imgView = (ImageView) view.findViewById(R.id.imgview);
 					TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
 					TextView tvSnippet = (TextView) view.findViewById(R.id.tvSnippet);
 					

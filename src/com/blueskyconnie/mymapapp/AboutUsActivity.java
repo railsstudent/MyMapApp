@@ -31,7 +31,6 @@ public class AboutUsActivity extends Activity {
 					case R.id.btnPhoneCall:
 						Intent itDial = new Intent();
 						itDial.setAction(Intent.ACTION_CALL);
-//						itDial.setAction(Intent.ACTION_DIAL);
 						itDial.setData(Uri.parse("tel:" + strPhoneNum));
 						startActivity(itDial);
 						break;
@@ -39,14 +38,28 @@ public class AboutUsActivity extends Activity {
 						Intent itEmail = new Intent();
 						itEmail.setAction(Intent.ACTION_VIEW);
 						itEmail.setData(Uri.parse("mailto:" + strEmail));
-//						itEmail.putExtra(Intent.EXTRA_EMAIL, new String[] { strEmail });
 						itEmail.putExtra(Intent.EXTRA_SUBJECT, "Hello");
 						itEmail.putExtra(Intent.EXTRA_TEXT, "Good Work!!!");
 						try {
 							startActivity(Intent.createChooser(itEmail, "Choose Email Provider"));
-//							startActivity(itEmail);
 						} catch (ActivityNotFoundException ex) {
 							Toast.makeText(AboutUsActivity.this, "There are no email clients installed.", 
+									Toast.LENGTH_SHORT).show();
+						}
+						break;
+					case R.id.btnSendSms:
+						
+//						SmsManager smgr = SmsManager.getDefault();
+//						smgr.sendTextMessage(strPhoneNum, null, "Good Work!!!", null, null);
+						
+						Intent itSms = new Intent();
+						itSms.setAction(Intent.ACTION_VIEW);
+						itSms.setData(Uri.parse("sms:" + strPhoneNum.trim()));
+						itSms.putExtra("sms_body", "Good Work!!!");
+						try {
+							startActivity(itSms);
+						} catch (ActivityNotFoundException ex) {
+							Toast.makeText(AboutUsActivity.this, "SMS service is not provided.", 
 									Toast.LENGTH_SHORT).show();
 						}
 						break;
@@ -59,6 +72,9 @@ public class AboutUsActivity extends Activity {
 
 		Button btnSendEmail = (Button)findViewById(R.id.btnSendEmail);
 		btnSendEmail.setOnClickListener(listener);
+
+		Button btnSendSms = (Button)findViewById(R.id.btnSendSms);
+		btnSendSms.setOnClickListener(listener);
 	}
 
 	@Override

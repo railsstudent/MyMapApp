@@ -25,6 +25,7 @@
     <string name="nameValue">Connie Leung</string>
     <string name="btn_dial_text">Call Immediately</string>
     <string name="btn_send_email">Send Email</string>
+    <string name="btn_send_sms">Send SMS</string>
     <string name="hello_world">Hello world! (Courses Taken)</string>
     <string name="hello_world_current">Hello world! (Current Courses)</string>
     <string name="hello_world_upcoming">Hello world! (Upcoming Courses)</string>
