@@ -25,4 +25,11 @@
     <string name="nameValue">Connie Leung</string>
     <string name="btn_dial_text">Call Immediately</string>
     <string name="btn_send_email">Send Email</string>
+    <string name="hello_world">Hello world! (Courses Taken)</string>
+    <string name="hello_world_current">Hello world! (Current Courses)</string>
+    <string name="hello_world_upcoming">Hello world! (Upcoming Courses)</string>
+
+    <string name="taken_tab_indicator">Taken</string>
+    <string name="current_tab_indicator">Current</string>
+    <string name="upcoming_tab_indicator">Upcoming</string>
 </resources>

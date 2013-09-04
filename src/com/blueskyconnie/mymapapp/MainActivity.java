@@ -1,18 +1,24 @@
 package com.blueskyconnie.mymapapp;
 
+
 import android.app.TabActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TabHost;
 
-
 @SuppressWarnings("deprecation")
 public class MainActivity extends TabActivity  {
 
+	private static final String CURRENT_TAB = "currentTab";
 	private TabHost mTabHost;
 	private TabHost.TabSpec tabSpecBranch;
 	private TabHost.TabSpec tabSpecAboutMe;
+	private TabHost.TabSpec tabSpecCourseTaken;
+	private TabHost.TabSpec tabSpecCurrentCourse;
+	private TabHost.TabSpec tabSpecUpcomingCourse;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +32,43 @@ public class MainActivity extends TabActivity  {
 
 		tabSpecAboutMe = mTabHost.newTabSpec("aboutMeTab").setIndicator(this.getString(R.string.aboutme_tab_indicator));
 		tabSpecAboutMe.setContent(new Intent(this, AboutUsActivity.class));
-		
+	
+		tabSpecCourseTaken = mTabHost.newTabSpec("takenTab").setIndicator(this.getString(R.string.taken_tab_indicator));
+		tabSpecCourseTaken.setContent(new Intent(this, CourseTakenActivity.class));
+	
+		tabSpecCurrentCourse = mTabHost.newTabSpec(CURRENT_TAB).setIndicator(this.getString(R.string.current_tab_indicator));
+		tabSpecCurrentCourse.setContent(new Intent(this, CurrentCourseActivity.class));
+	
+		tabSpecUpcomingCourse = mTabHost.newTabSpec("upcomingTab").setIndicator(this.getString(R.string.upcoming_tab_indicator));
+		tabSpecUpcomingCourse.setContent(new Intent(this, UpcomingCourseActivity.class));
+
+		mTabHost.addTab(tabSpecCurrentCourse);
+		mTabHost.addTab(tabSpecUpcomingCourse);
+		mTabHost.addTab(tabSpecCourseTaken);
 		mTabHost.addTab(tabSpecBranch);
 		mTabHost.addTab(tabSpecAboutMe);
-		mTabHost.getTabWidget().setCurrentTab(0);
+//		mTabHost.getTabWidget().setCurrentTab(0);
 	}
 	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		String currentTab = mTabHost.getCurrentTabTag();
+//		Toast.makeText(this, "Write currentTab: " + currentTab, Toast.LENGTH_SHORT).show();
+		SharedPreferences.Editor editor = getPreferences(Context.MODE_PRIVATE).edit();
+		editor.putString(CURRENT_TAB, currentTab);
+		editor.commit();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		SharedPreferences mypref = this.getPreferences(Context.MODE_PRIVATE);
+		String currentTab = mypref.getString(CURRENT_TAB, CURRENT_TAB);
+		mTabHost.setCurrentTabByTag(currentTab);
+//		Toast.makeText(this, "Load currentTab: " + currentTab, Toast.LENGTH_SHORT).show();
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

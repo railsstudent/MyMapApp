@@ -22,7 +22,7 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    
+
     <!-- add permission to call phone -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
@@ -47,8 +47,13 @@
 
         <activity android:name="com.blueskyconnie.mymapapp.BranchActivity" >
         </activity>
-        <activity
-            android:name="com.blueskyconnie.mymapapp.AboutUsActivity">
+        <activity android:name="com.blueskyconnie.mymapapp.AboutUsActivity" >
+        </activity>
+        <activity android:name="com.blueskyconnie.mymapapp.CourseTakenActivity" >
+        </activity>
+        <activity android:name="com.blueskyconnie.mymapapp.CurrentCourseActivity" >
+        </activity>
+        <activity android:name="com.blueskyconnie.mymapapp.UpcomingCourseActivity" >
         </activity>
     </application>
 

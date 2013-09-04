@@ -181,12 +181,14 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020015;
         public static final int common_signin_btn_text_pressed_dark=0x7f020016;
         public static final int common_signin_btn_text_pressed_light=0x7f020017;
-        public static final int darkgray=0x7f02001d;
+        public static final int darkgray=0x7f02001f;
         public static final int feva=0x7f020018;
         public static final int ic_launcher=0x7f020019;
-        public static final int mtr=0x7f02001a;
-        public static final int pin=0x7f02001b;
-        public static final int tradesquare=0x7f02001c;
+        public static final int img_android=0x7f02001a;
+        public static final int img_apple=0x7f02001b;
+        public static final int mtr=0x7f02001c;
+        public static final int pin=0x7f02001d;
+        public static final int tradesquare=0x7f02001e;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f050005;
@@ -222,13 +224,19 @@ containing a value of this type.
     public static final class layout {
         public static final int activity_about_us=0x7f030000;
         public static final int activity_branch=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int layout_main_popup=0x7f030003;
+        public static final int activity_course_taken=0x7f030002;
+        public static final int activity_current_course=0x7f030003;
+        public static final int activity_main=0x7f030004;
+        public static final int activity_upcoming_course=0x7f030005;
+        public static final int layout_main_popup=0x7f030006;
     }
     public static final class menu {
         public static final int about_me=0x7f090000;
-        public static final int main=0x7f090001;
-        public static final int menu_branch=0x7f090002;
+        public static final int course_taken=0x7f090001;
+        public static final int current_course=0x7f090002;
+        public static final int main=0x7f090003;
+        public static final int menu_branch=0x7f090004;
+        public static final int upcoming_course=0x7f090005;
     }
     public static final class string {
         public static final int aboutme=0x7f060021;
@@ -322,14 +330,20 @@ containing a value of this type.
         public static final int csw_address=0x7f06001a;
         public static final int csw_mtr_address=0x7f06001c;
         public static final int csw_title=0x7f060017;
+        public static final int current_tab_indicator=0x7f060031;
         public static final int email=0x7f060025;
         public static final int emailValue=0x7f060026;
+        public static final int hello_world=0x7f06002d;
+        public static final int hello_world_current=0x7f06002e;
+        public static final int hello_world_upcoming=0x7f06002f;
         public static final int name=0x7f060029;
         public static final int nameValue=0x7f06002a;
         public static final int nearest_mtr_exit=0x7f06001e;
         public static final int phoneNo=0x7f060022;
         public static final int phoneValue=0x7f060023;
         public static final int phoneValue1=0x7f060024;
+        public static final int taken_tab_indicator=0x7f060030;
+        public static final int upcoming_tab_indicator=0x7f060032;
         public static final int wc_address=0x7f06001b;
         public static final int wc_mtr_address=0x7f06001d;
         public static final int wc_title=0x7f060018;

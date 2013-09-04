@@ -20,4 +20,7 @@
    	 <string name="name">姓名：</string>
    	 <string name="btn_dial_text">即時致電</string>
    	 <string name="btn_send_email">電郵聯絡</string>
+    <string name="taken_tab_indicator">已讀課程</string>
+    <string name="current_tab_indicator">現時課程</string>
+    <string name="upcoming_tab_indicator">未來課程</string>
 </resources>
