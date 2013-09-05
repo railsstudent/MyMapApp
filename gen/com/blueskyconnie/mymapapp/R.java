@@ -192,15 +192,18 @@ containing a value of this type.
     }
     public static final class id {
         public static final int LinearLayout1=0x7f050006;
-        public static final int action_settings=0x7f05001d;
+        public static final int action_settings=0x7f05001f;
         public static final int btnPhoneCall=0x7f050014;
         public static final int btnSendEmail=0x7f050015;
         public static final int btnSendSms=0x7f050016;
         public static final int hybrid=0x7f050004;
-        public static final int imgview=0x7f050019;
+        public static final int imgview=0x7f05001c;
+        public static final int lstViewCurrent=0x7f05001a;
+        public static final int lstViewUpcoming=0x7f05001b;
+        public static final int lstviewTaken=0x7f050019;
         public static final int map=0x7f050018;
-        public static final int menu_csw=0x7f05001e;
-        public static final int menu_wc=0x7f05001f;
+        public static final int menu_csw=0x7f050020;
+        public static final int menu_wc=0x7f050021;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int satellite=0x7f050002;
@@ -210,7 +213,6 @@ containing a value of this type.
         public static final int tableRow3=0x7f05000e;
         public static final int tableRow4=0x7f050011;
         public static final int terrain=0x7f050003;
-        public static final int textView1=0x7f05001a;
         public static final int tv1=0x7f050017;
         public static final int tvAboutMe=0x7f050007;
         public static final int tvBlog=0x7f050012;
@@ -221,8 +223,8 @@ containing a value of this type.
         public static final int tvName=0x7f050009;
         public static final int tvNameValue=0x7f05000a;
         public static final int tvPhone=0x7f05000c;
-        public static final int tvSnippet=0x7f05001c;
-        public static final int tvTitle=0x7f05001b;
+        public static final int tvSnippet=0x7f05001e;
+        public static final int tvTitle=0x7f05001d;
     }
     public static final class layout {
         public static final int activity_about_us=0x7f030000;
@@ -335,20 +337,17 @@ containing a value of this type.
         public static final int csw_address=0x7f06001a;
         public static final int csw_mtr_address=0x7f06001c;
         public static final int csw_title=0x7f060017;
-        public static final int current_tab_indicator=0x7f060032;
+        public static final int current_tab_indicator=0x7f06002f;
         public static final int email=0x7f060025;
         public static final int emailValue=0x7f060026;
-        public static final int hello_world=0x7f06002e;
-        public static final int hello_world_current=0x7f06002f;
-        public static final int hello_world_upcoming=0x7f060030;
         public static final int name=0x7f060029;
         public static final int nameValue=0x7f06002a;
         public static final int nearest_mtr_exit=0x7f06001e;
         public static final int phoneNo=0x7f060022;
         public static final int phoneValue=0x7f060023;
         public static final int phoneValue1=0x7f060024;
-        public static final int taken_tab_indicator=0x7f060031;
-        public static final int upcoming_tab_indicator=0x7f060033;
+        public static final int taken_tab_indicator=0x7f06002e;
+        public static final int upcoming_tab_indicator=0x7f060030;
         public static final int wc_address=0x7f06001b;
         public static final int wc_mtr_address=0x7f06001d;
         public static final int wc_title=0x7f060018;

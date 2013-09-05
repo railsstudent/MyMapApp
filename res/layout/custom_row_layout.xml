@@ -12,13 +12,11 @@
         android:src="@drawable/img_android" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tvCourseName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imgview"
         android:layout_toRightOf="@+id/imgview"
         android:singleLine="false"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 </RelativeLayout>
