@@ -192,18 +192,16 @@ containing a value of this type.
     }
     public static final class id {
         public static final int LinearLayout1=0x7f050006;
-        public static final int action_settings=0x7f05001f;
+        public static final int action_settings=0x7f050020;
         public static final int btnPhoneCall=0x7f050014;
         public static final int btnSendEmail=0x7f050015;
         public static final int btnSendSms=0x7f050016;
         public static final int hybrid=0x7f050004;
-        public static final int imgview=0x7f05001c;
-        public static final int lstViewCurrent=0x7f05001a;
-        public static final int lstViewUpcoming=0x7f05001b;
-        public static final int lstviewTaken=0x7f050019;
+        public static final int imgview=0x7f05001a;
+        public static final int linearLayout1=0x7f05001b;
         public static final int map=0x7f050018;
-        public static final int menu_csw=0x7f050020;
-        public static final int menu_wc=0x7f050021;
+        public static final int menu_csw=0x7f050021;
+        public static final int menu_wc=0x7f050022;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int satellite=0x7f050002;
@@ -217,34 +215,35 @@ containing a value of this type.
         public static final int tvAboutMe=0x7f050007;
         public static final int tvBlog=0x7f050012;
         public static final int tvBlogValue=0x7f050013;
+        public static final int tvCode=0x7f05001c;
         public static final int tvCourseName=0x7f05000d;
         public static final int tvEmail=0x7f05000f;
         public static final int tvEmailValue=0x7f050010;
+        public static final int tvInstructor=0x7f05001d;
         public static final int tvName=0x7f050009;
         public static final int tvNameValue=0x7f05000a;
         public static final int tvPhone=0x7f05000c;
-        public static final int tvSnippet=0x7f05001e;
-        public static final int tvTitle=0x7f05001d;
+        public static final int tvSnippet=0x7f05001f;
+        public static final int tvTitle=0x7f05001e;
+        public static final int webview=0x7f050019;
     }
     public static final class layout {
         public static final int activity_about_us=0x7f030000;
         public static final int activity_branch=0x7f030001;
         public static final int activity_course_taken=0x7f030002;
-        public static final int activity_current_course=0x7f030003;
-        public static final int activity_main=0x7f030004;
-        public static final int activity_upcoming_course=0x7f030005;
-        public static final int custom_row_layout=0x7f030006;
-        public static final int layout_main_popup=0x7f030007;
+        public static final int activity_course_web_view=0x7f030003;
+        public static final int activity_current_course=0x7f030004;
+        public static final int activity_main=0x7f030005;
+        public static final int activity_upcoming_course=0x7f030006;
+        public static final int custom_row_layout=0x7f030007;
+        public static final int layout_main_popup=0x7f030008;
     }
     public static final class menu {
-        public static final int about_me=0x7f090000;
-        public static final int course_taken=0x7f090001;
-        public static final int current_course=0x7f090002;
-        public static final int main=0x7f090003;
-        public static final int menu_branch=0x7f090004;
-        public static final int upcoming_course=0x7f090005;
+        public static final int main=0x7f090000;
+        public static final int menu_branch=0x7f090001;
     }
     public static final class string {
+        public static final int NoCourse=0x7f060031;
         public static final int aboutme=0x7f060021;
         public static final int aboutme_tab_indicator=0x7f060020;
         public static final int action_settings=0x7f060016;

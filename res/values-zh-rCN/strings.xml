@@ -23,4 +23,5 @@
     <string name="current_tab_indicator">現時課程</string>
     <string name="upcoming_tab_indicator">未來課程</string>
     <string name="btn_send_sms">短信联络</string>
+    <string name="NoCourse">没有课程</string>
 </resources>

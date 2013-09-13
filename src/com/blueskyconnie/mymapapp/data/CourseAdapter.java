@@ -50,6 +50,8 @@ public class CourseAdapter extends ArrayAdapter<Course> {
 						
 			holder.tvCourse = tmpTV;
 			holder.imgView = tmpIV;
+			holder.tvCode = (TextView) v.findViewById(R.id.tvCode);
+			holder.tvInstructor = (TextView) v.findViewById(R.id.tvInstructor);
 			v.setTag(holder);
 		} else {
 			holder = (CourseHolder) v.getTag();
@@ -60,6 +62,8 @@ public class CourseAdapter extends ArrayAdapter<Course> {
 			holder.tvCourse.setText(course.getCourseName());
 			holder.imgView.setImageResource(
 					course.getCourseType() == Course.APPTYPE.ANDROID ? R.drawable.img_android : R.drawable.img_apple);
+			holder.tvCode.setText(course.getCode());
+			holder.tvInstructor.setText(course.getInstructor());
 		}
 		return v;
 	}
@@ -67,5 +71,7 @@ public class CourseAdapter extends ArrayAdapter<Course> {
 	private static class CourseHolder {
 		TextView tvCourse;
 		ImageView imgView;
+		TextView tvCode;
+		TextView tvInstructor;
 	}
 }

@@ -25,8 +25,8 @@
 
     <!-- add permission to call phone -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <!--  add permission to send sms -->
-    <!--  uses-permission android:name="android.permission.SEND_SMS" -->
+    <!-- add permission to send sms -->
+    <!-- uses-permission android:name="android.permission.SEND_SMS" -->
 
     <application
         android:allowBackup="true"
@@ -56,6 +56,8 @@
         <activity android:name="com.blueskyconnie.mymapapp.CurrentCourseActivity" >
         </activity>
         <activity android:name="com.blueskyconnie.mymapapp.UpcomingCourseActivity" >
+        </activity>
+        <activity android:name="com.blueskyconnie.mymapapp.CourseWebViewActivity" >
         </activity>
     </application>
 

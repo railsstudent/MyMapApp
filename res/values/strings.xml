@@ -29,4 +29,6 @@
     <string name="taken_tab_indicator">Taken</string>
     <string name="current_tab_indicator">Current</string>
     <string name="upcoming_tab_indicator">Upcoming</string>
+    <string name="NoCourse">No Course</string>
+
 </resources>

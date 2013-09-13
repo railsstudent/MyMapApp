@@ -8,18 +8,20 @@ public class Course {
 	private APPTYPE courseType;
 	private String courseName;
 	private STATUS courseStatus;
-	private String url;
+	private String code;
+	private String instructor;
 	
 	// "http://www1.fevaworks.com/portal/site/course.asp?code=ANDROIDAIO&categoryid=14"
 	public Course() {
 		
 	}
 	
-	public Course(String name, APPTYPE apptype, STATUS status, String url) {
+	public Course(String name, APPTYPE apptype, STATUS status, String code, String instructor) {
 		this.courseName = name;
 		this.courseType = apptype;
 		this.courseStatus = status;
-		this.url = url;
+		this.code = code;
+		this.instructor = instructor;
 	}
 	
 	public APPTYPE getCourseType() {
@@ -41,12 +43,20 @@ public class Course {
 		this.courseStatus = courseStatus;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getCode() {
+		return code;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(String instructor) {
+		this.instructor = instructor;
 	}
 
 	@Override
@@ -59,7 +69,7 @@ public class Course {
 				+ ((courseStatus == null) ? 0 : courseStatus.hashCode());
 		result = prime * result
 				+ ((courseType == null) ? 0 : courseType.hashCode());
-		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		result = prime * result + ((code == null) ? 0 : code.hashCode());
 		return result;
 	}
 
@@ -81,10 +91,10 @@ public class Course {
 			return false;
 		if (courseType != other.courseType)
 			return false;
-		if (url == null) {
-			if (other.url != null)
+		if (code == null) {
+			if (other.code != null)
 				return false;
-		} else if (!url.equals(other.url))
+		} else if (!code.equals(other.code))
 			return false;
 		return true;
 	}

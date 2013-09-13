@@ -48,10 +48,6 @@ public class AboutUsActivity extends Activity {
 						}
 						break;
 					case R.id.btnSendSms:
-						
-//						SmsManager smgr = SmsManager.getDefault();
-//						smgr.sendTextMessage(strPhoneNum, null, "Good Work!!!", null, null);
-						
 						Intent itSms = new Intent();
 						itSms.setAction(Intent.ACTION_VIEW);
 						itSms.setData(Uri.parse("sms:" + strPhoneNum.trim()));
@@ -80,7 +76,6 @@ public class AboutUsActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.about_me, menu);
 		return true;
 	}
 
