@@ -30,5 +30,8 @@
     <string name="current_tab_indicator">Current</string>
     <string name="upcoming_tab_indicator">Upcoming</string>
     <string name="NoCourse">No Course</string>
-
+    <string name="change_current_title">Update to Current Course</string>
+    <string name="delete_course_title">Delete Course</string>
+	<string name="edit_course_title">Edit Course</string>
+    <string name="actions">Actions</string>
 </resources>

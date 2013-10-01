@@ -1,6 +1,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
     <item android:id="@+id/menu_csw" android:title="@string/csw_title" android:orderInCategory="100"></item>
     <item android:id="@+id/menu_wc" android:title="@string/wc_title" android:orderInCategory="110"></item>
-
 </menu>
