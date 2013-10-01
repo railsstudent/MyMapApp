@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/menu_current" android:title="@string/change_current_title" android:orderInCategory="100"></item>
+    <item android:id="@+id/menu_delete" android:title="@string/delete_course_title" android:orderInCategory="110"></item>
+    <item android:id="@+id/menu_edit" android:title="@string/edit_course_title" android:orderInCategory="120"></item>
+</menu>
