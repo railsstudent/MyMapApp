@@ -60,8 +60,19 @@ public class CourseAdapter extends ArrayAdapter<Course> {
 		Course course = this.getItem(position);
 		if (course != null) {
 			holder.tvCourse.setText(course.getCourseName());
-			holder.imgView.setImageResource(
-					course.getCourseType() == Course.APPTYPE.ANDROID ? R.drawable.img_android : R.drawable.img_apple);
+			int imgId = R.drawable.img_question;
+			switch (course.getCourseType()) {
+				case ANDROID:
+					imgId = R.drawable.img_android;
+					break;
+				case IOS:
+					imgId = R.drawable.img_apple;
+					break;
+				case WINS:
+					imgId = R.drawable.img_win;
+					break;
+			}
+			holder.imgView.setImageResource(imgId);
 			holder.tvCode.setText(course.getCode());
 			holder.tvInstructor.setText(course.getInstructor());
 		}

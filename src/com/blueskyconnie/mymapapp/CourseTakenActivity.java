@@ -1,11 +1,12 @@
 package com.blueskyconnie.mymapapp;
 
-import java.util.Arrays;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -13,22 +14,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.blueskyconnie.mymapapp.data.Course;
-import com.blueskyconnie.mymapapp.data.Course.APPTYPE;
-import com.blueskyconnie.mymapapp.data.Course.STATUS;
 import com.blueskyconnie.mymapapp.data.CourseAdapter;
+import com.blueskyconnie.mymapapp.data.CourseDataSource;
 
 public class CourseTakenActivity extends ListActivity {
+
+	private CourseDataSource datasource = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_course_taken);
 
-		CourseAdapter adapter = new CourseAdapter(
-				Arrays.asList(new Course("Certificate in Google Android Application Development for Marketing Managers", 
-									APPTYPE.ANDROID, STATUS.TAKEN, "ANDROIDAPPS", "Roger Tang"),
-						new Course("Certificate in Google Android Mobile and Tablet Application Development", 
-								APPTYPE.ANDROID, STATUS.TAKEN, "ANDROIDAIO" , "Leslie Tsang")), this);
+		datasource = new CourseDataSource(this);
+		CourseAdapter adapter = new CourseAdapter(datasource.getCourses(Course.STATUS.TAKEN), this);
 		this.setListAdapter(adapter);
 	}
 
@@ -49,4 +48,22 @@ public class CourseTakenActivity extends ListActivity {
 		return true;
 	}
 
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		return super.onContextItemSelected(item);
+	}
+
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		getMenuInflater().inflate(R.menu.menu_context_taken, menu);
+		menu.setHeaderTitle(this.getString(R.string.actions));
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
 }

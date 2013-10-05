@@ -13,6 +13,9 @@ import android.widget.TabHost;
 public class MainActivity extends TabActivity  {
 
 	private static final String CURRENT_TAB = "currentTab";
+	private static final String TAKEN_TAB = "takenTab";
+	private static final String UPCOMING_TAB = "upcomingTab";
+
 	private TabHost mTabHost;
 	private TabHost.TabSpec tabSpecBranch;
 	private TabHost.TabSpec tabSpecAboutMe;
@@ -33,13 +36,13 @@ public class MainActivity extends TabActivity  {
 		tabSpecAboutMe = mTabHost.newTabSpec("aboutMeTab").setIndicator(this.getString(R.string.aboutme_tab_indicator));
 		tabSpecAboutMe.setContent(new Intent(this, AboutUsActivity.class));
 	
-		tabSpecCourseTaken = mTabHost.newTabSpec("takenTab").setIndicator(this.getString(R.string.taken_tab_indicator));
+		tabSpecCourseTaken = mTabHost.newTabSpec(TAKEN_TAB).setIndicator(this.getString(R.string.taken_tab_indicator));
 		tabSpecCourseTaken.setContent(new Intent(this, CourseTakenActivity.class));
 	
 		tabSpecCurrentCourse = mTabHost.newTabSpec(CURRENT_TAB).setIndicator(this.getString(R.string.current_tab_indicator));
 		tabSpecCurrentCourse.setContent(new Intent(this, CurrentCourseActivity.class));
 	
-		tabSpecUpcomingCourse = mTabHost.newTabSpec("upcomingTab").setIndicator(this.getString(R.string.upcoming_tab_indicator));
+		tabSpecUpcomingCourse = mTabHost.newTabSpec(UPCOMING_TAB).setIndicator(this.getString(R.string.upcoming_tab_indicator));
 		tabSpecUpcomingCourse.setContent(new Intent(this, UpcomingCourseActivity.class));
 
 		mTabHost.addTab(tabSpecCurrentCourse);
@@ -47,14 +50,12 @@ public class MainActivity extends TabActivity  {
 		mTabHost.addTab(tabSpecCourseTaken);
 		mTabHost.addTab(tabSpecBranch);
 		mTabHost.addTab(tabSpecAboutMe);
-//		mTabHost.getTabWidget().setCurrentTab(0);
 	}
 	
 	@Override
 	protected void onPause() {
 		super.onPause();
 		String currentTab = mTabHost.getCurrentTabTag();
-//		Toast.makeText(this, "Write currentTab: " + currentTab, Toast.LENGTH_SHORT).show();
 		SharedPreferences.Editor editor = getPreferences(Context.MODE_PRIVATE).edit();
 		editor.putString(CURRENT_TAB, currentTab);
 		editor.commit();
@@ -66,7 +67,6 @@ public class MainActivity extends TabActivity  {
 		SharedPreferences mypref = this.getPreferences(Context.MODE_PRIVATE);
 		String currentTab = mypref.getString(CURRENT_TAB, CURRENT_TAB);
 		mTabHost.setCurrentTabByTag(currentTab);
-//		Toast.makeText(this, "Load currentTab: " + currentTab, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override

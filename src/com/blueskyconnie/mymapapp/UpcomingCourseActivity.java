@@ -1,7 +1,5 @@
 package com.blueskyconnie.mymapapp;
 
-import java.util.Arrays;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,26 +15,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blueskyconnie.mymapapp.data.Course;
-import com.blueskyconnie.mymapapp.data.Course.APPTYPE;
-import com.blueskyconnie.mymapapp.data.Course.STATUS;
 import com.blueskyconnie.mymapapp.data.CourseAdapter;
+import com.blueskyconnie.mymapapp.data.CourseDataSource;
+import com.blueskyconnie.mymapapp.uihelper.Utility;
 
 public class UpcomingCourseActivity extends ListActivity {
 
+	private CourseDataSource datasource = null;
+	private CourseAdapter adapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_upcoming_course);
-		
-		CourseAdapter adapter = new CourseAdapter(
-				Arrays.asList(new Course("Certificate in iPhone & iPad Application Development for Marketing Managers", 
-									APPTYPE.IOS, STATUS.UPCOMING, "IPHONEAPPS", "Leslie Tsang"),
-						new Course("Certificate in iPhone Application Development", 
-								APPTYPE.IOS, STATUS.UPCOMING, "IPHONEDEV", "Leslie Tsang"),			
-						new Course("Certificate in iPad Application Development", 
-								APPTYPE.IOS, STATUS.UPCOMING, "IPADDEV", "Leslie Tsang")), this);
-		setListAdapter(adapter);
-		
 		// register context menu to list view
 		this.registerForContextMenu(this.getListView());
 	}
@@ -49,9 +40,8 @@ public class UpcomingCourseActivity extends ListActivity {
 		Intent it = new Intent(this, CourseWebViewActivity.class);
 		it.putExtra("code", tvCode.getText());
 		this.startActivity(it);
-		
-		//Toast.makeText(this, tvCourseName.getText() + "," + tvCode.getText(), Toast.LENGTH_SHORT).show();
 	}
+	
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -66,12 +56,26 @@ public class UpcomingCourseActivity extends ListActivity {
 
 	public boolean onContextItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.menu_current) {
-			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
+			Utility.handleContextMenuItemClicked(this, item, this.getListView(), datasource, Course.STATUS.CURRENT);
+//			if (course != null) {
+//				if (datasource.updateStatus(course, Course.STATUS.CURRENT)) {
+//					adapter.remove(course);
+//					adapter.notifyDataSetChanged();
+//					Toast.makeText(this, "Course status updated to Current.", Toast.LENGTH_SHORT).show();
+//				}
+//			}
 		} else if (item.getItemId() == R.id.menu_delete) {
 			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
 		} else if (item.getItemId() == R.id.menu_edit) {
 			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
 		}
 		return super.onContextItemSelected(item);
+	}
+
+	protected void onResume() {
+		super.onResume();
+		datasource = new CourseDataSource(this);
+		adapter = new CourseAdapter(datasource.getCourses(Course.STATUS.UPCOMING), this);
+		this.setListAdapter(adapter);
 	}
 }

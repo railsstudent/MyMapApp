@@ -181,7 +181,7 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020015;
         public static final int common_signin_btn_text_pressed_dark=0x7f020016;
         public static final int common_signin_btn_text_pressed_light=0x7f020017;
-        public static final int darkgray=0x7f020023;
+        public static final int darkgray=0x7f020025;
         public static final int feva=0x7f020018;
         public static final int ic_launcher=0x7f020019;
         public static final int ic_plusone_medium_off_client=0x7f02001a;
@@ -190,9 +190,11 @@ containing a value of this type.
         public static final int ic_plusone_tall_off_client=0x7f02001d;
         public static final int img_android=0x7f02001e;
         public static final int img_apple=0x7f02001f;
-        public static final int mtr=0x7f020020;
-        public static final int pin=0x7f020021;
-        public static final int tradesquare=0x7f020022;
+        public static final int img_question=0x7f020020;
+        public static final int img_win=0x7f020021;
+        public static final int mtr=0x7f020022;
+        public static final int pin=0x7f020023;
+        public static final int tradesquare=0x7f020024;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f050006;
@@ -205,9 +207,11 @@ containing a value of this type.
         public static final int linearLayout1=0x7f05001b;
         public static final int map=0x7f050018;
         public static final int menu_csw=0x7f050021;
-        public static final int menu_current=0x7f050023;
-        public static final int menu_delete=0x7f050024;
-        public static final int menu_edit=0x7f050025;
+        public static final int menu_current=0x7f050027;
+        public static final int menu_delete=0x7f050025;
+        public static final int menu_edit=0x7f050026;
+        public static final int menu_taken=0x7f050023;
+        public static final int menu_upcoming=0x7f050024;
         public static final int menu_wc=0x7f050022;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
@@ -248,14 +252,16 @@ containing a value of this type.
     public static final class menu {
         public static final int main=0x7f090000;
         public static final int menu_branch=0x7f090001;
-        public static final int menu_context_upcoming=0x7f090002;
+        public static final int menu_context_current=0x7f090002;
+        public static final int menu_context_taken=0x7f090003;
+        public static final int menu_context_upcoming=0x7f090004;
     }
     public static final class string {
         public static final int NoCourse=0x7f060035;
         public static final int aboutme=0x7f060025;
         public static final int aboutme_tab_indicator=0x7f060024;
         public static final int action_settings=0x7f06001a;
-        public static final int actions=0x7f060039;
+        public static final int actions=0x7f06003b;
         public static final int address_title=0x7f06001d;
         public static final int app_name=0x7f060019;
         /**   Title for notification shown when GooglePlayServices needs to be
@@ -288,6 +294,8 @@ containing a value of this type.
         public static final int btn_send_email=0x7f060030;
         public static final int btn_send_sms=0x7f060031;
         public static final int change_current_title=0x7f060036;
+        public static final int change_taken_title=0x7f060037;
+        public static final int change_upcoming_title=0x7f060038;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -359,8 +367,8 @@ containing a value of this type.
         public static final int csw_mtr_address=0x7f060020;
         public static final int csw_title=0x7f06001b;
         public static final int current_tab_indicator=0x7f060033;
-        public static final int delete_course_title=0x7f060037;
-        public static final int edit_course_title=0x7f060038;
+        public static final int delete_course_title=0x7f060039;
+        public static final int edit_course_title=0x7f06003a;
         public static final int email=0x7f060029;
         public static final int emailValue=0x7f06002a;
         public static final int name=0x7f06002d;

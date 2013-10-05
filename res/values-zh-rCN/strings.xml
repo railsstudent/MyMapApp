@@ -24,4 +24,10 @@
     <string name="upcoming_tab_indicator">未來課程</string>
     <string name="btn_send_sms">短信联络</string>
     <string name="NoCourse">没有课程</string>
+    <string name="change_current_title">改为就读</string>
+    <string name="change_taken_title">改为已完成</string>
+    <string name="change_upcoming_title">改为即将就读</string>
+    <string name="delete_course_title">删除课程</string>
+	<string name="edit_course_title">编辑课程</string>
+    <string name="actions">Options</string>
 </resources>
