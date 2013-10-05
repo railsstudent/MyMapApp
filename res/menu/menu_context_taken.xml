@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/menu_current" android:title="@string/change_current_title" android:orderInCategory="100"></item>
+    <item android:id="@+id/menu_upcoming" android:title="@string/change_upcoming_title" android:orderInCategory="110"></item>
+</menu>
