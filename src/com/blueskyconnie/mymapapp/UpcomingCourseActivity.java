@@ -17,12 +17,13 @@ import android.widget.Toast;
 import com.blueskyconnie.mymapapp.data.Course;
 import com.blueskyconnie.mymapapp.data.CourseAdapter;
 import com.blueskyconnie.mymapapp.data.CourseDataSource;
-import com.blueskyconnie.mymapapp.uihelper.Utility;
+import com.blueskyconnie.mymapapp.helper.UIController;
 
 public class UpcomingCourseActivity extends ListActivity {
 
 	private CourseDataSource datasource = null;
 	private CourseAdapter adapter;
+	private UIController controller;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class UpcomingCourseActivity extends ListActivity {
 		setContentView(R.layout.activity_upcoming_course);
 		// register context menu to list view
 		this.registerForContextMenu(this.getListView());
+		controller = new UIController();
 	}
 
 	protected void onListItemClick(ListView l, View view, int position, long id) {
@@ -56,14 +58,8 @@ public class UpcomingCourseActivity extends ListActivity {
 
 	public boolean onContextItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.menu_current) {
-			Utility.handleContextMenuItemClicked(this, item, this.getListView(), datasource, Course.STATUS.CURRENT);
-//			if (course != null) {
-//				if (datasource.updateStatus(course, Course.STATUS.CURRENT)) {
-//					adapter.remove(course);
-//					adapter.notifyDataSetChanged();
-//					Toast.makeText(this, "Course status updated to Current.", Toast.LENGTH_SHORT).show();
-//				}
-//			}
+			controller.handleContextMenuItemClicked(this, item, this.getListView(), 
+					datasource, Course.STATUS.CURRENT);
 		} else if (item.getItemId() == R.id.menu_delete) {
 			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
 		} else if (item.getItemId() == R.id.menu_edit) {

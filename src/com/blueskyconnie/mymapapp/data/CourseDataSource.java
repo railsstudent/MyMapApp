@@ -3,6 +3,8 @@ package com.blueskyconnie.mymapapp.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.blueskyconnie.mymapapp.data.Course.STATUS;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -64,6 +66,30 @@ public class CourseDataSource {
 					CourseSqliteHelper.COLUMN_ID + "= ? AND " + 
 					CourseSqliteHelper.COLUMN_STATUS + "= ?", 
 					new String[] { String.valueOf(course.getId()), course.getCourseStatus().name() });
+		this.close();
+		return cnt > 0;
+	}
+	
+	public synchronized boolean deleteCourse(int courseId) {
+		
+		this.open();
+		int cnt = database.delete(CourseSqliteHelper.TABLE_COURSE, CourseSqliteHelper.COLUMN_ID + "= ?", 
+				new String[] { String.valueOf(courseId)});
+		this.close();
+		return cnt > 0;
+	}
+	
+	public boolean insertCourse(Course newCourse) {
+		
+		ContentValues values = new ContentValues();
+		values.put(CourseSqliteHelper.COLUMN_NAME, newCourse.getCourseName());
+		values.put(CourseSqliteHelper.COLUMN_TYPE, newCourse.getCourseType().name());
+		values.put(CourseSqliteHelper.COLUMN_STATUS, STATUS.UPCOMING.name());
+		values.put(CourseSqliteHelper.COLUMN_CODE, newCourse.getCode());
+		values.put(CourseSqliteHelper.COLUMN_INSTRUCTOR, newCourse.getInstructor());
+
+		this.open();
+		long cnt = database.insert(CourseSqliteHelper.TABLE_COURSE, null, values);
 		this.close();
 		return cnt > 0;
 	}

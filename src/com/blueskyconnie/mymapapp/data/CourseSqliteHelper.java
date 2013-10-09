@@ -23,8 +23,11 @@ public class CourseSqliteHelper extends SQLiteOpenHelper {
 
 	public static final String COLUMN_NAME = "name";
 	public static final String COLUMN_STATUS = "status";
+	public static final String COLUMN_TYPE = "type";
 	public static final String COLUMN_ID = "id";
-	
+	public static final String COLUMN_CODE = "code";
+	public static final String COLUMN_INSTRUCTOR = "instructor";
+		
 	public CourseSqliteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -85,6 +88,22 @@ public class CourseSqliteHelper extends SQLiteOpenHelper {
 		values.put("status", STATUS.UPCOMING.name());
 		values.put("code", "IPADDEV");
 		values.put("instructor", "Leslie Tsang");
+		db.insert(TABLE_COURSE, null, values);
+		
+		values =  new ContentValues();
+		values.put("name", "dummy course 1");
+		values.put("type", APPTYPE.OTHER.name());
+		values.put("status", STATUS.UPCOMING.name());
+		values.put("code", "OTHER1");
+		values.put("instructor", "xxx");
+		db.insert(TABLE_COURSE, null, values);
+		
+		values =  new ContentValues();
+		values.put("name", "dummy course 2");
+		values.put("type", APPTYPE.OTHER.name());
+		values.put("status", STATUS.UPCOMING.name());
+		values.put("code", "OTHER2");
+		values.put("instructor", "yyy yyy");
 		db.insert(TABLE_COURSE, null, values);
 	}
 

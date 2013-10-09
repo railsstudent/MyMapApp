@@ -13,7 +13,7 @@ public class Course {
 			return desc;
 		}
 	};
-	public enum APPTYPE  { ANDROID, IOS, WINS };
+	public enum APPTYPE  { ANDROID, IOS, WINS, OTHER };
 	
 	private int id;
 	private APPTYPE courseType;

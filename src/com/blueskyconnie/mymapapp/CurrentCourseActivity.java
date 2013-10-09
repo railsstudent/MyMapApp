@@ -17,18 +17,20 @@ import android.widget.Toast;
 import com.blueskyconnie.mymapapp.data.Course;
 import com.blueskyconnie.mymapapp.data.CourseAdapter;
 import com.blueskyconnie.mymapapp.data.CourseDataSource;
-import com.blueskyconnie.mymapapp.uihelper.Utility;
+import com.blueskyconnie.mymapapp.helper.UIController;
 
 public class CurrentCourseActivity extends ListActivity {
 
 	private CourseDataSource datasource = null;
 	private CourseAdapter adapter;
+	private UIController controller;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_current_course);
 		this.registerForContextMenu(this.getListView());
+		controller = new UIController();
 	}
 	
 	protected void onListItemClick(ListView l, View view, int position, long id) {
@@ -55,30 +57,13 @@ public class CurrentCourseActivity extends ListActivity {
 	}
 
 	public boolean onContextItemSelected(MenuItem item) {
-//		AdapterContextMenuInfo adpInfo = (AdapterContextMenuInfo) item.getMenuInfo();
-//		CourseAdapter adapter = (CourseAdapter) getListView().getAdapter();
-//		Course course = (Course) adapter.getItem(adpInfo.position);
 		// change to upcoming
 		if (item.getItemId() == R.id.menu_upcoming) {
-			Utility.handleContextMenuItemClicked(this, item, this.getListView(), datasource, Course.STATUS.UPCOMING);
-//			if (course != null) {
-//				if (datasource.updateStatus(course, Course.STATUS.UPCOMING)) {
-//					adapter.remove(course);
-//					adapter.notifyDataSetChanged();
-//					Toast.makeText(this, "Course status of " + course.getCourseName() + " updated to Upcoming.", 
-//						Toast.LENGTH_SHORT).show();
-//				}
-//			}
+			controller.handleContextMenuItemClicked(this, item, this.getListView(), 
+					datasource, Course.STATUS.UPCOMING);
 		} else if (item.getItemId() == R.id.menu_taken) {
-			Utility.handleContextMenuItemClicked(this, item, this.getListView(), datasource, Course.STATUS.TAKEN);
-//			if (course != null) {
-//				if (datasource.updateStatus(course, Course.STATUS.TAKEN)) {
-//					adapter.remove(course);
-//					adapter.notifyDataSetChanged();
-//					Toast.makeText(this, "Course status of " + course.getCourseName() + " updated to Taken.", 
-//						Toast.LENGTH_SHORT).show();
-//				}
-//			}
+			controller.handleContextMenuItemClicked(this, item, this.getListView(), 
+						datasource, Course.STATUS.TAKEN);
 		} else if (item.getItemId() == R.id.menu_delete) {
 			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
 		} else if (item.getItemId() == R.id.menu_edit) {
