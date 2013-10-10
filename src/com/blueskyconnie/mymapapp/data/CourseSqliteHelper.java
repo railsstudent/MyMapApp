@@ -105,6 +105,22 @@ public class CourseSqliteHelper extends SQLiteOpenHelper {
 		values.put("code", "OTHER2");
 		values.put("instructor", "yyy yyy");
 		db.insert(TABLE_COURSE, null, values);
+		
+		values =  new ContentValues();
+		values.put("name", "dummy course 3");
+		values.put("type", APPTYPE.ANDROID.name());
+		values.put("status", STATUS.UPCOMING.name());
+		values.put("code", "OTHER2");
+		values.put("instructor", "zzzzzz");
+		db.insert(TABLE_COURSE, null, values);
+
+		values =  new ContentValues();
+		values.put("name", "dummy course 4");
+		values.put("type", APPTYPE.IOS.name());
+		values.put("status", STATUS.UPCOMING.name());
+		values.put("code", "OTHER4");
+		values.put("instructor", "www ww 2");
+		db.insert(TABLE_COURSE, null, values);
 	}
 
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

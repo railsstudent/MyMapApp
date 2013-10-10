@@ -29,5 +29,10 @@
     <string name="change_upcoming_title">改为即将就读</string>
     <string name="delete_course_title">删除课程</string>
 	<string name="edit_course_title">编辑课程</string>
-    <string name="actions">Options</string>
+    <string name="actions">选项</string>
+    <string name="confirm">确认</string>
+    <string name="confirmDelete">你确认要删除课程？</string>
+    <string name="ok">继续</string>
+    <string name="cancel">取消</string>
+    <string name="course_deleted">课程已经删除。</string>
 </resources>

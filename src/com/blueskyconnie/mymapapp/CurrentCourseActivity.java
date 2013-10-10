@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.blueskyconnie.mymapapp.data.Course;
 import com.blueskyconnie.mymapapp.data.CourseAdapter;
 import com.blueskyconnie.mymapapp.data.CourseDataSource;
+import com.blueskyconnie.mymapapp.helper.DialogHelper;
 import com.blueskyconnie.mymapapp.helper.UIController;
 
 public class CurrentCourseActivity extends ListActivity {
@@ -65,7 +66,8 @@ public class CurrentCourseActivity extends ListActivity {
 			controller.handleContextMenuItemClicked(this, item, this.getListView(), 
 						datasource, Course.STATUS.TAKEN);
 		} else if (item.getItemId() == R.id.menu_delete) {
-			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
+			DialogHelper.createConfirmDeleteDialog(this, getString(R.string.confirm), 
+					item, getListView(), datasource).show();
 		} else if (item.getItemId() == R.id.menu_edit) {
 			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
 		} 

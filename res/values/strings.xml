@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Fevaworks Report Card</string>
+    <string name="app_name">Fevaworks Tracker</string>
     <string name="action_settings">Settings</string>
     <string name="csw_title">Cheung Sha Wan Branch</string>
     <string name="wc_title">Wan Chai Branch</string>
@@ -36,4 +36,9 @@
     <string name="delete_course_title">Delete Course</string>
 	<string name="edit_course_title">Edit Course</string>
     <string name="actions">Options</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirmDelete">Are you sure to delete this course?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="course_deleted">Course is deleted.</string>
 </resources>
