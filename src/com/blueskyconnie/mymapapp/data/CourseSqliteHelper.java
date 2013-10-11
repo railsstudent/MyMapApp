@@ -19,7 +19,7 @@ public class CourseSqliteHelper extends SQLiteOpenHelper {
 			"CREATE TABLE " + TABLE_COURSE + "(id integer primary key autoincrement, " + 
 				"name varchar(200) not null, type varchar(50) default '', " + 
 				"status varchar(10) default 'UPCOMING', code varchar(50) default '',  " + 
-				"instructor varchar(100) default 'TBD');";
+				"instructor varchar(100) default 'TBD', version integer default 0);";
 
 	public static final String COLUMN_NAME = "name";
 	public static final String COLUMN_STATUS = "status";
@@ -27,6 +27,7 @@ public class CourseSqliteHelper extends SQLiteOpenHelper {
 	public static final String COLUMN_ID = "id";
 	public static final String COLUMN_CODE = "code";
 	public static final String COLUMN_INSTRUCTOR = "instructor";
+	public static final String COLUMN_VER = "version";
 		
 	public CourseSqliteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.blueskyconnie.mymapapp.data.Course;
 import com.blueskyconnie.mymapapp.data.CourseAdapter;
@@ -62,10 +61,10 @@ public class UpcomingCourseActivity extends ListActivity {
 			controller.handleContextMenuItemClicked(this, item, this.getListView(), 
 					datasource, Course.STATUS.CURRENT);
 		} else if (item.getItemId() == R.id.menu_delete) {
-			DialogHelper.createConfirmDeleteDialog(this, this.getString(R.string.confirm), 
-					item, getListView(), datasource).show();
+			DialogHelper.createConfirmDeleteDialog(this, item, getListView(), datasource).show();
 		} else if (item.getItemId() == R.id.menu_edit) {
-			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
+//			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
+			DialogHelper.createEditCourseDialog(this, item, getListView(), datasource).show();
 		}
 		return super.onContextItemSelected(item);
 	}

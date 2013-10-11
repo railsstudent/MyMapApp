@@ -36,9 +36,15 @@
     <string name="delete_course_title">Delete Course</string>
 	<string name="edit_course_title">Edit Course</string>
     <string name="actions">Options</string>
-    <string name="confirm">Confirm</string>
+    <string name="title_confirm">Confirm</string>
     <string name="confirmDelete">Are you sure to delete this course?</string>
     <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
+    <string name="btn_cancel">Cancel</string>
     <string name="course_deleted">Course is deleted.</string>
+    <string name="course_name">Course: </string>
+    <string name="course_type">"Type: "</string>
+    <string name="instructor_hint">Instructor name</string>
+    <string name="instructor">Instructor:</string>
+    <string name="btn_save">Save</string>
+    <string name="title_edit_course">Edit Course</string>
 </resources>

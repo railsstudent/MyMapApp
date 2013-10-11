@@ -21,6 +21,7 @@ public class Course {
 	private STATUS courseStatus;
 	private String code;
 	private String instructor;
+	private int version;
 	
 	// "http://www1.fevaworks.com/portal/site/course.asp?code=ANDROIDAIO&categoryid=14"
 	public Course() {
@@ -80,6 +81,14 @@ public class Course {
 
 	public void setInstructor(String instructor) {
 		this.instructor = instructor;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

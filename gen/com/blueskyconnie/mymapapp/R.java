@@ -198,23 +198,28 @@ containing a value of this type.
     }
     public static final class id {
         public static final int LinearLayout1=0x7f050006;
-        public static final int action_settings=0x7f050022;
+        public static final int TableLayout1=0x7f05001e;
+        public static final int action_settings=0x7f050027;
+        public static final int btnEditCancel=0x7f050023;
+        public static final int btnEditSave=0x7f050024;
         public static final int btnPhoneCall=0x7f050014;
         public static final int btnSendEmail=0x7f050015;
         public static final int btnSendSms=0x7f050016;
+        public static final int editInstructor=0x7f050022;
         public static final int hybrid=0x7f050004;
         public static final int imgview=0x7f05001a;
         public static final int linearLayout1=0x7f05001b;
         public static final int map=0x7f050018;
-        public static final int menu_csw=0x7f050023;
-        public static final int menu_current=0x7f050029;
-        public static final int menu_delete=0x7f050027;
-        public static final int menu_edit=0x7f050028;
-        public static final int menu_taken=0x7f050025;
-        public static final int menu_upcoming=0x7f050026;
-        public static final int menu_wc=0x7f050024;
+        public static final int menu_csw=0x7f050028;
+        public static final int menu_current=0x7f05002e;
+        public static final int menu_delete=0x7f05002c;
+        public static final int menu_edit=0x7f05002d;
+        public static final int menu_taken=0x7f05002a;
+        public static final int menu_upcoming=0x7f05002b;
+        public static final int menu_wc=0x7f050029;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
+        public static final int radCourseType=0x7f050021;
         public static final int satellite=0x7f050002;
         public static final int scrollview=0x7f050005;
         public static final int tableRow1=0x7f050008;
@@ -227,17 +232,17 @@ containing a value of this type.
         public static final int tvBlog=0x7f050012;
         public static final int tvBlogValue=0x7f050013;
         public static final int tvCode=0x7f05001c;
+        public static final int tvCourseDisp=0x7f05001f;
         public static final int tvCourseName=0x7f05000d;
         public static final int tvEmail=0x7f05000f;
         public static final int tvEmailValue=0x7f050010;
         public static final int tvInstructor=0x7f05001d;
         public static final int tvName=0x7f050009;
-        public static final int tvName2=0x7f05001e;
         public static final int tvNameValue=0x7f05000a;
-        public static final int tvNameValue2=0x7f05001f;
         public static final int tvPhone=0x7f05000c;
-        public static final int tvSnippet=0x7f050021;
-        public static final int tvTitle=0x7f050020;
+        public static final int tvSnippet=0x7f050026;
+        public static final int tvTitle=0x7f050025;
+        public static final int tvType=0x7f050020;
         public static final int webview=0x7f050019;
     }
     public static final class layout {
@@ -293,10 +298,11 @@ containing a value of this type.
         public static final int blog=0x7f06002b;
         public static final int blogValue=0x7f06002c;
         public static final int branch_tab_indicator=0x7f060023;
+        public static final int btn_cancel=0x7f06003f;
         public static final int btn_dial_text=0x7f06002f;
+        public static final int btn_save=0x7f060045;
         public static final int btn_send_email=0x7f060030;
         public static final int btn_send_sms=0x7f060031;
-        public static final int cancel=0x7f06003f;
         public static final int change_current_title=0x7f060036;
         public static final int change_taken_title=0x7f060037;
         public static final int change_upcoming_title=0x7f060038;
@@ -367,9 +373,10 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f060012;
-        public static final int confirm=0x7f06003c;
         public static final int confirmDelete=0x7f06003d;
         public static final int course_deleted=0x7f060040;
+        public static final int course_name=0x7f060041;
+        public static final int course_type=0x7f060042;
         public static final int csw_address=0x7f06001e;
         public static final int csw_mtr_address=0x7f060020;
         public static final int csw_title=0x7f06001b;
@@ -378,6 +385,8 @@ containing a value of this type.
         public static final int edit_course_title=0x7f06003a;
         public static final int email=0x7f060029;
         public static final int emailValue=0x7f06002a;
+        public static final int instructor=0x7f060044;
+        public static final int instructor_hint=0x7f060043;
         public static final int name=0x7f06002d;
         public static final int nameValue=0x7f06002e;
         public static final int nearest_mtr_exit=0x7f060022;
@@ -386,6 +395,8 @@ containing a value of this type.
         public static final int phoneValue=0x7f060027;
         public static final int phoneValue1=0x7f060028;
         public static final int taken_tab_indicator=0x7f060032;
+        public static final int title_confirm=0x7f06003c;
+        public static final int title_edit_course=0x7f060046;
         public static final int upcoming_tab_indicator=0x7f060034;
         public static final int wc_address=0x7f06001f;
         public static final int wc_mtr_address=0x7f060021;

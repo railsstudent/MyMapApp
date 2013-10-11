@@ -60,12 +60,15 @@ public class CourseDataSource {
 		
 		ContentValues values = new ContentValues();
 		values.put(CourseSqliteHelper.COLUMN_STATUS, status.name());
+
 		this.open();
 		
 		int cnt = database.update(CourseSqliteHelper.TABLE_COURSE, values, 
 					CourseSqliteHelper.COLUMN_ID + "= ? AND " + 
-					CourseSqliteHelper.COLUMN_STATUS + "= ?", 
-					new String[] { String.valueOf(course.getId()), course.getCourseStatus().name() });
+					CourseSqliteHelper.COLUMN_STATUS + "= ? AND " + 
+					CourseSqliteHelper.COLUMN_VER + "= ? ", 
+					new String[] { String.valueOf(course.getId()), course.getCourseStatus().name(),
+								String.valueOf(course.getVersion()) });
 		this.close();
 		return cnt > 0;
 	}
@@ -90,6 +93,22 @@ public class CourseDataSource {
 
 		this.open();
 		long cnt = database.insert(CourseSqliteHelper.TABLE_COURSE, null, values);
+		this.close();
+		return cnt > 0;
+	}
+	
+	public synchronized boolean updateCourse (Course course, String instructor, 
+			Course.APPTYPE appType) {
+		
+		instructor = instructor == null ? "" : instructor.trim();
+		ContentValues values = new ContentValues();
+		values.put(CourseSqliteHelper.COLUMN_INSTRUCTOR, instructor);
+		values.put(CourseSqliteHelper.COLUMN_TYPE, appType.name());
+
+		this.open();
+		int cnt = database.update(CourseSqliteHelper.TABLE_COURSE, values, 
+					CourseSqliteHelper.COLUMN_ID + "= ? AND " + CourseSqliteHelper.COLUMN_VER + "= ? ", 
+					new String[] { String.valueOf(course.getId()), String.valueOf(course.getVersion()) });
 		this.close();
 		return cnt > 0;
 	}
