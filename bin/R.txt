@@ -83,6 +83,7 @@ int id menu_csw 0x7f050028
 int id menu_current 0x7f05002e
 int id menu_delete 0x7f05002c
 int id menu_edit 0x7f05002d
+int id menu_new 0x7f05002f
 int id menu_taken 0x7f05002a
 int id menu_upcoming 0x7f05002b
 int id menu_wc 0x7f050029
@@ -128,11 +129,13 @@ int menu menu_branch 0x7f090001
 int menu menu_context_current 0x7f090002
 int menu menu_context_taken 0x7f090003
 int menu menu_context_upcoming 0x7f090004
+int menu menu_current 0x7f090005
 int string NoCourse 0x7f060035
 int string aboutme 0x7f060025
 int string aboutme_tab_indicator 0x7f060024
 int string action_settings 0x7f06001a
 int string actions 0x7f06003b
+int string add_new_course 0x7f060047
 int string address_title 0x7f06001d
 int string app_name 0x7f060019
 int string auth_client_needs_enabling_title 0x7f060014

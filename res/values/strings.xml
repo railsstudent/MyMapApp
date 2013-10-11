@@ -47,4 +47,5 @@
     <string name="instructor">Instructor:</string>
     <string name="btn_save">Save</string>
     <string name="title_edit_course">Edit Course</string>
+    <string name="add_new_course">Add Course</string>
 </resources>

@@ -214,6 +214,7 @@ containing a value of this type.
         public static final int menu_current=0x7f05002e;
         public static final int menu_delete=0x7f05002c;
         public static final int menu_edit=0x7f05002d;
+        public static final int menu_new=0x7f05002f;
         public static final int menu_taken=0x7f05002a;
         public static final int menu_upcoming=0x7f05002b;
         public static final int menu_wc=0x7f050029;
@@ -263,6 +264,7 @@ containing a value of this type.
         public static final int menu_context_current=0x7f090002;
         public static final int menu_context_taken=0x7f090003;
         public static final int menu_context_upcoming=0x7f090004;
+        public static final int menu_current=0x7f090005;
     }
     public static final class string {
         public static final int NoCourse=0x7f060035;
@@ -270,6 +272,7 @@ containing a value of this type.
         public static final int aboutme_tab_indicator=0x7f060024;
         public static final int action_settings=0x7f06001a;
         public static final int actions=0x7f06003b;
+        public static final int add_new_course=0x7f060047;
         public static final int address_title=0x7f06001d;
         public static final int app_name=0x7f060019;
         /**   Title for notification shown when GooglePlayServices needs to be

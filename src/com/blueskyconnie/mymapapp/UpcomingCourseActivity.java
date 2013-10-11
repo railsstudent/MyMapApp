@@ -47,6 +47,7 @@ public class UpcomingCourseActivity extends ListActivity {
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_current, menu);
 		return true;
 	}
 
@@ -63,22 +64,10 @@ public class UpcomingCourseActivity extends ListActivity {
 		} else if (item.getItemId() == R.id.menu_delete) {
 			DialogHelper.createConfirmDeleteDialog(this, item, getListView(), datasource).show();
 		} else if (item.getItemId() == R.id.menu_edit) {
-//			Toast.makeText(this, "You clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
 			DialogHelper.createEditCourseDialog(this, item, getListView(), datasource).show();
 		}
 		return super.onContextItemSelected(item);
 	}
-
-//	@Override
-//	protected Dialog onCreateDialog(int id) {
-//		Dialog dialog = null;
-//		switch (id) {
-//			case DialogHelper.DIALOG_CONFIRM_DELETE:
-//				dialog = DialogHelper.createConfirmDeleteDialog(this, "Confirm", datasource, );
-//				break;
-//		}
-//		return dialog;
-//	} 
 
 	protected void onResume() {
 		super.onResume();
