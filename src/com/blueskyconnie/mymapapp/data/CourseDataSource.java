@@ -73,16 +73,16 @@ public class CourseDataSource {
 		return cnt > 0;
 	}
 	
-	public synchronized boolean deleteCourse(int courseId) {
-		
+	public synchronized boolean deleteCourse(Course course) {
 		this.open();
-		int cnt = database.delete(CourseSqliteHelper.TABLE_COURSE, CourseSqliteHelper.COLUMN_ID + "= ?", 
-				new String[] { String.valueOf(courseId)});
+		int cnt = database.delete(CourseSqliteHelper.TABLE_COURSE, 
+				CourseSqliteHelper.COLUMN_ID + "= ? AND " + CourseSqliteHelper.COLUMN_VER + "= ?", 
+				new String[] { String.valueOf(course.getId()), String.valueOf(course.getVersion())});
 		this.close();
 		return cnt > 0;
 	}
 	
-	public boolean insertCourse(Course newCourse) {
+	public long insertCourse(Course newCourse) {
 		
 		ContentValues values = new ContentValues();
 		values.put(CourseSqliteHelper.COLUMN_NAME, newCourse.getCourseName());
@@ -92,9 +92,9 @@ public class CourseDataSource {
 		values.put(CourseSqliteHelper.COLUMN_INSTRUCTOR, newCourse.getInstructor());
 
 		this.open();
-		long cnt = database.insert(CourseSqliteHelper.TABLE_COURSE, null, values);
+		long newId = database.insert(CourseSqliteHelper.TABLE_COURSE, null, values);
 		this.close();
-		return cnt > 0;
+		return newId;
 	}
 	
 	public synchronized boolean updateCourse (Course course, String instructor, 

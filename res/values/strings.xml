@@ -38,14 +38,17 @@
     <string name="actions">Options</string>
     <string name="title_confirm">Confirm</string>
     <string name="confirmDelete">Are you sure to delete this course?</string>
-    <string name="ok">OK</string>
+    <string name="btn_ok">OK</string>
     <string name="btn_cancel">Cancel</string>
     <string name="course_deleted">Course is deleted.</string>
     <string name="course_name">Course: </string>
     <string name="course_type">"Type: "</string>
-    <string name="instructor_hint">Instructor name</string>
+    <string name="instructor_hint">Enter name (max 100)</string>
+    <string name="course_hint">Enter course (max 200)</string>
     <string name="instructor">Instructor:</string>
     <string name="btn_save">Save</string>
-    <string name="title_edit_course">Edit Course</string>
+    <string name="btn_create">Create</string>
     <string name="add_new_course">Add Course</string>
+    <string name="status">Status:</string>
+    <string name="code">Code:</string>
 </resources>

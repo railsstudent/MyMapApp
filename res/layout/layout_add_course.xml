@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp" >
+
+            <TextView
+                android:id="@+id/tvNewCourseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/course_name"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/edtNewCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:hint="@string/course_hint"
+                android:inputType="text"
+                android:maxLength="200"
+                android:scrollHorizontally="true" >
+
+                <requestFocus />
+            </EditText>
+        </TableRow>
+
+        <TableRow
+	        android:id="@+id/tableRow6"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingBottom="3dp" >
+
+	        <TextView
+                android:id="@+id/tvlblCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/code"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+	  
+	         <EditText
+	             android:id="@+id/edtNewCourseCode"
+	             android:layout_width="match_parent"
+	             android:layout_height="wrap_content"
+	             android:ellipsize="end"
+	             android:inputType="text"
+	             android:maxLength="50"
+	             android:scrollHorizontally="true" >
+                <requestFocus />
+            </EditText>
+	
+	    </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp" >
+
+            <TextView
+                android:id="@+id/tvNewType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/course_type"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Spinner
+                android:id="@+id/spNewCourseType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+        
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp" >
+
+            <TextView
+                android:id="@+id/tvNewInstructor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instructor"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+ 			 <EditText
+ 			     android:id="@+id/edtNewInstructor"
+ 			     android:layout_width="match_parent"
+ 			     android:layout_height="wrap_content"
+ 			     android:ellipsize="end"
+ 			     android:hint="@string/instructor_hint"
+ 			     android:inputType="textCapWords|textPersonName"
+ 			     android:maxLength="100"
+ 			     android:scrollHorizontally="true" >
+                <requestFocus />
+            </EditText>
+        </TableRow>
+        
+         <TableRow
+	        android:id="@+id/tableRow4"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingBottom="3dp" >
+
+	        <TextView
+                android:id="@+id/tvlblStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+	  
+	        <TextView
+                android:id="@+id/tvNewStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	    </TableRow>
+        
+       <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="3dp" >
+
+	       <Button
+	           android:id="@+id/btnNewCancel"
+	           android:layout_width="0dp"
+	           android:layout_height="wrap_content"
+	           android:layout_weight="1"
+	           android:text="@string/btn_cancel" />
+	  
+	        <Button
+	            android:id="@+id/btnNewCreate"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	           android:layout_weight="1"
+	            android:text="@string/btn_create" />
+	
+	    </TableRow>
+    </TableLayout>
+
+</ScrollView>

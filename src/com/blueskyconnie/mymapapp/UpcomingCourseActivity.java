@@ -1,5 +1,7 @@
 package com.blueskyconnie.mymapapp;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,19 +10,24 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.blueskyconnie.mymapapp.data.Course;
+import com.blueskyconnie.mymapapp.data.Course.STATUS;
 import com.blueskyconnie.mymapapp.data.CourseAdapter;
 import com.blueskyconnie.mymapapp.data.CourseDataSource;
-import com.blueskyconnie.mymapapp.helper.DialogHelper;
 import com.blueskyconnie.mymapapp.helper.UIController;
 
 public class UpcomingCourseActivity extends ListActivity {
 
+	private static final int DIALOG_ADD_COURSE = 1;
+	
 	private CourseDataSource datasource = null;
 	private CourseAdapter adapter;
 	private UIController controller;
@@ -35,20 +42,121 @@ public class UpcomingCourseActivity extends ListActivity {
 	}
 
 	protected void onListItemClick(ListView l, View view, int position, long id) {
-		RelativeLayout relLayout = (RelativeLayout) view;
-		LinearLayout linLayout = (LinearLayout) relLayout.getChildAt(2);
-		TextView tvCode = (TextView) linLayout.getChildAt(0);
-		
+		CourseAdapter adapter = (CourseAdapter) l.getAdapter();
+		String code = adapter.getItem(position).getCode();
 		Intent it = new Intent(this, CourseWebViewActivity.class);
-		it.putExtra("code", tvCode.getText());
+		it.putExtra("code", code);
 		this.startActivity(it);
 	}
-	
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_current, menu);
 		return true;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.menu_new) {
+			showDialog(DIALOG_ADD_COURSE);
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	protected void onPrepareDialog(int id, Dialog dialog) {
+		final AlertDialog alertDialog = (AlertDialog) dialog;
+		switch (id) {
+			case DIALOG_ADD_COURSE:
+				alertDialog.setTitle(this.getString(R.string.add_new_course));
+				Button btnNewCancel = (Button) alertDialog.findViewById(R.id.btnNewCancel);
+				Button btnNewCreate = (Button) alertDialog.findViewById(R.id.btnNewCreate);
+				TextView tv = (TextView) alertDialog.findViewById(R.id.tvNewStatus);
+				tv.setText(Course.STATUS.UPCOMING.name());
+				EditText edtInstructor = (EditText) alertDialog.findViewById(R.id.edtNewInstructor);
+				edtInstructor.setText("NA");
+
+				Spinner spCourseType = (Spinner) alertDialog.findViewById(R.id.spNewCourseType);
+				ArrayAdapter<String> spinAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+				for (Course.APPTYPE appType : Course.APPTYPE.values()) {
+					spinAdapter.add(appType.name());
+				}
+				spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				spCourseType.setAdapter(spinAdapter);
+				btnNewCancel.setOnClickListener(new View.OnClickListener(){
+					public void onClick(View v) {
+						alertDialog.dismiss();
+					}
+				});
+				btnNewCreate.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						EditText edtCourse = (EditText) alertDialog.findViewById(R.id.edtNewCourseName);
+						EditText edtCode = (EditText) alertDialog.findViewById(R.id.edtNewCourseCode);
+						EditText edtInstructor = (EditText) alertDialog.findViewById(R.id.edtNewInstructor);
+
+						String name = edtCourse.getText().toString().trim();
+						String code = edtCode.getText().toString().trim();
+						String instructor = edtInstructor.getText().toString().trim();
+						
+						if (name == null || name.length() == 0) {
+							Toast.makeText(UpcomingCourseActivity.this, "Course cannot be blank.", 
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+
+						if (code == null || code.length() == 0) {
+							Toast.makeText(UpcomingCourseActivity.this, "Code cannot be blank.", 
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+
+						if (instructor == null || instructor.length() == 0) {
+							Toast.makeText(UpcomingCourseActivity.this, "Instructor cannot be blank.",
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+
+						Spinner spinner = (Spinner) alertDialog.findViewById(R.id.spNewCourseType);
+						int pos = spinner.getSelectedItemPosition();
+						String strType = String.valueOf(spinner.getItemAtPosition(pos));
+						Course.APPTYPE courseType = Course.APPTYPE.valueOf(strType);
+						Course newCourse = new Course();
+						newCourse.setCode(code);
+						newCourse.setCourseName(name);
+						newCourse.setCourseStatus(STATUS.UPCOMING);
+						newCourse.setInstructor(instructor);
+						newCourse.setCourseType(courseType);
+						long newId = datasource.insertCourse(newCourse);
+						String msg = "";
+						if (newId >= 0) {
+							newCourse.setId(Long.valueOf(newId).intValue());
+							adapter.add(newCourse);
+						} 
+						msg = (newId >= 0 ? "Course created." : "Course not created.");
+						adapter.notifyDataSetChanged();
+						
+						edtCourse.setText("");
+						edtCode.setText("");
+						edtInstructor.setText("");
+						
+						alertDialog.dismiss();
+						Toast.makeText(UpcomingCourseActivity.this, msg, Toast.LENGTH_SHORT).show();
+					}
+				});
+		}
+	}
+
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		switch (id) {
+			case DIALOG_ADD_COURSE:
+				View view_add_course = getLayoutInflater().inflate(R.layout.layout_add_course, null);
+				builder.setView(view_add_course);
+		}
+		return builder.create();
 	}
 
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
@@ -61,10 +169,6 @@ public class UpcomingCourseActivity extends ListActivity {
 		if (item.getItemId() == R.id.menu_current) {
 			controller.handleContextMenuItemClicked(this, item, this.getListView(), 
 					datasource, Course.STATUS.CURRENT);
-		} else if (item.getItemId() == R.id.menu_delete) {
-			DialogHelper.createConfirmDeleteDialog(this, item, getListView(), datasource).show();
-		} else if (item.getItemId() == R.id.menu_edit) {
-			DialogHelper.createEditCourseDialog(this, item, getListView(), datasource).show();
 		}
 		return super.onContextItemSelected(item);
 	}
@@ -72,7 +176,7 @@ public class UpcomingCourseActivity extends ListActivity {
 	protected void onResume() {
 		super.onResume();
 		datasource = new CourseDataSource(this);
-		adapter = new CourseAdapter(datasource.getCourses(Course.STATUS.UPCOMING), this);
+		adapter = new CourseAdapter(datasource.getCourses(Course.STATUS.UPCOMING), this, datasource);
 		this.setListAdapter(adapter);
 	}
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" 
+    android:descendantFocusability="blocksDescendants">
 
     <ImageView
         android:id="@+id/imgview"
@@ -17,31 +18,37 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imgview"
         android:singleLine="false"
-        android:text="Medium Text"
+        android:text="course name"
         android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvCourseName"
-        android:layout_below="@+id/tvCourseName"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/tvCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Small Text"
-            android:visibility="gone"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/tvInstructor"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Small Text"
+            android:layout_below="@+id/tvCourseName"
+            android:layout_alignLeft="@+id/tvCourseName"
+            android:text="instructor"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
             android:textAppearance="?android:attr/textAppearanceSmall" />
-    </LinearLayout>
 
+        
+        <ImageButton
+            android:id="@+id/imgbtnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvInstructor"
+            android:layout_below="@+id/tvCourseName"
+            android:layout_toLeftOf="@+id/imgbtnDelete"
+            android:src="@drawable/edit" />
+
+         <ImageButton
+            android:id="@+id/imgbtnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tvInstructor"
+            android:layout_below="@+id/tvCourseName"
+            android:src="@drawable/delete" />
+        
 </RelativeLayout>

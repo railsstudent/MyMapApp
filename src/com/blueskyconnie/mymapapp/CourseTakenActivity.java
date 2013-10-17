@@ -8,10 +8,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.blueskyconnie.mymapapp.data.Course;
 import com.blueskyconnie.mymapapp.data.Course.STATUS;
@@ -34,11 +31,10 @@ public class CourseTakenActivity extends ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View view, int position, long id) {
-		RelativeLayout relLayout = (RelativeLayout) view;
-		LinearLayout linLayout = (LinearLayout) relLayout.getChildAt(2);
-		TextView tvCode = (TextView) linLayout.getChildAt(0);
+		CourseAdapter adapter = (CourseAdapter) l.getAdapter();
+		String code = adapter.getItem(position).getCode();
 		Intent it = new Intent(this, CourseWebViewActivity.class);
-		it.putExtra("code", tvCode.getText());
+		it.putExtra("code", code);
 		this.startActivity(it);
 	}
 
@@ -71,7 +67,7 @@ public class CourseTakenActivity extends ListActivity {
 	protected void onResume() {
 		super.onResume();
 		datasource = new CourseDataSource(this);
-		CourseAdapter adapter = new CourseAdapter(datasource.getCourses(Course.STATUS.TAKEN), this);
+		CourseAdapter adapter = new CourseAdapter(datasource.getCourses(Course.STATUS.TAKEN), this, datasource);
 		this.setListAdapter(adapter);
 	}
 }

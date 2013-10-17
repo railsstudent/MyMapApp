@@ -32,7 +32,15 @@
     <string name="actions">選項</string>
     <string name="title_confirm">確認</string>
     <string name="confirmDelete">你確認刪除課程?</string>
-    <string name="ok">繼續</string>
+    <string name="btn_ok">繼續</string>
     <string name="btn_cancel">取消</string>
     <string name="course_deleted">課程已經刪除。</string>
+    <string name="course_name">課程：</string>
+    <string name="course_type">類型：</string>
+    <string name="instructor_hint">輸入姓名</string>
+    <string name="instructor">導師：</string>
+    <string name="btn_save">儲存</string>
+    <string name="add_new_course">新增課程</string>
+    <string name="btn_create">新增</string>
+    <string name="course_hint">輸入課程</string>
 </resources>
