@@ -43,4 +43,9 @@
     <string name="add_new_course">新增课程</string>
     <string name="btn_create">新增</string>
     <string name="course_hint">输入导师</string>
+    <string name="blank_course">课程不能空。</string>
+	<string name="blank_code">课程编号不能空。</string>
+	<string name="blank_instructor">导师不能空。</string>
+	<string name="course_created">课程输入成功。</string>
+	<string name="course_not_created">课程输入失败。</string>
 </resources>

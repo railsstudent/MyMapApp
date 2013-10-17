@@ -34,7 +34,7 @@
     <string name="change_taken_title">Change to Taken</string>
     <string name="change_upcoming_title">Change to Upcoming</string>
     <string name="delete_course_title">Delete Course</string>
-	<string name="edit_course_title">Edit Course</string>
+    <string name="edit_course_title">Edit Course</string>
     <string name="actions">Options</string>
     <string name="title_confirm">Confirm</string>
     <string name="confirmDelete">Are you sure to delete this course?</string>
@@ -51,4 +51,9 @@
     <string name="add_new_course">Add Course</string>
     <string name="status">Status:</string>
     <string name="code">Code:</string>
+	<string name="blank_course">Course cannot be blank.</string>
+	<string name="blank_code">Code cannot be blank.</string>
+	<string name="blank_instructor">Instructor cannot be blank.</string>
+	<string name="course_created">Course created.</string>
+	<string name="course_not_created">Course not created.</string>
 </resources>

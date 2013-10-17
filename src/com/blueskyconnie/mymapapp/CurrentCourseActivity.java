@@ -74,7 +74,9 @@ public class CurrentCourseActivity extends ListActivity {
 				Button btnNewCreate = (Button) alertDialog.findViewById(R.id.btnNewCreate);
 				TextView tv = (TextView) alertDialog.findViewById(R.id.tvNewStatus);
 				tv.setText(Course.STATUS.CURRENT.name());
-				EditText edtInstructor = (EditText) alertDialog.findViewById(R.id.edtNewInstructor);
+				final EditText edtCourse = (EditText) alertDialog.findViewById(R.id.edtNewCourseName);
+				final EditText edtCode = (EditText) alertDialog.findViewById(R.id.edtNewCourseCode);
+				final EditText edtInstructor = (EditText) alertDialog.findViewById(R.id.edtNewInstructor);
 				edtInstructor.setText("NA");
 
 				Spinner spCourseType = (Spinner) alertDialog.findViewById(R.id.spNewCourseType);
@@ -86,34 +88,36 @@ public class CurrentCourseActivity extends ListActivity {
 				spCourseType.setAdapter(spinAdapter);
 				btnNewCancel.setOnClickListener(new View.OnClickListener(){
 					public void onClick(View v) {
+						edtCourse.setText("");
+						edtCode.setText("");
+						edtInstructor.setText("");
 						alertDialog.dismiss();
 					}
 				});
 				btnNewCreate.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						EditText edtCourse = (EditText) alertDialog.findViewById(R.id.edtNewCourseName);
-						EditText edtCode = (EditText) alertDialog.findViewById(R.id.edtNewCourseCode);
-						EditText edtInstructor = (EditText) alertDialog.findViewById(R.id.edtNewInstructor);
-
 						String name = edtCourse.getText().toString().trim();
 						String code = edtCode.getText().toString().trim();
 						String instructor = edtInstructor.getText().toString().trim();
 						
 						if (name == null || name.length() == 0) {
-							Toast.makeText(CurrentCourseActivity.this, "Course cannot be blank.", 
+							Toast.makeText(CurrentCourseActivity.this, 
+									CurrentCourseActivity.this.getString(R.string.blank_course),
 									Toast.LENGTH_SHORT).show();
 							return;
 						}
 
 						if (code == null || code.length() == 0) {
-							Toast.makeText(CurrentCourseActivity.this, "Code cannot be blank.", 
+							Toast.makeText(CurrentCourseActivity.this, 
+									CurrentCourseActivity.this.getString(R.string.blank_code),
 									Toast.LENGTH_SHORT).show();
 							return;
 						}
 
 						if (instructor == null || instructor.length() == 0) {
-							Toast.makeText(CurrentCourseActivity.this, "Instructor cannot be blank.",
+							Toast.makeText(CurrentCourseActivity.this, 
+									CurrentCourseActivity.this.getString(R.string.blank_instructor),
 									Toast.LENGTH_SHORT).show();
 							return;
 						}
@@ -125,7 +129,7 @@ public class CurrentCourseActivity extends ListActivity {
 						Course newCourse = new Course();
 						newCourse.setCode(code);
 						newCourse.setCourseName(name);
-						newCourse.setCourseStatus(STATUS.UPCOMING);
+						newCourse.setCourseStatus(STATUS.CURRENT);
 						newCourse.setInstructor(instructor);
 						newCourse.setCourseType(courseType);
 						long newId = datasource.insertCourse(newCourse);
@@ -134,7 +138,8 @@ public class CurrentCourseActivity extends ListActivity {
 							newCourse.setId(Long.valueOf(newId).intValue());
 							adapter.add(newCourse);
 						} 
-						msg = (newId >= 0 ? "Course created." : "Course not created.");
+						msg = (newId >= 0 ? CurrentCourseActivity.this.getString(R.string.course_created) : 
+											CurrentCourseActivity.this.getString(R.string.course_not_created));
 						adapter.notifyDataSetChanged();
 						
 						edtCourse.setText("");

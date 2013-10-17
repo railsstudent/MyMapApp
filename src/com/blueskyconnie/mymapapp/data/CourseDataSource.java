@@ -3,8 +3,6 @@ package com.blueskyconnie.mymapapp.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.blueskyconnie.mymapapp.data.Course.STATUS;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -87,7 +85,7 @@ public class CourseDataSource {
 		ContentValues values = new ContentValues();
 		values.put(CourseSqliteHelper.COLUMN_NAME, newCourse.getCourseName());
 		values.put(CourseSqliteHelper.COLUMN_TYPE, newCourse.getCourseType().name());
-		values.put(CourseSqliteHelper.COLUMN_STATUS, STATUS.UPCOMING.name());
+		values.put(CourseSqliteHelper.COLUMN_STATUS, newCourse.getCourseStatus().name());
 		values.put(CourseSqliteHelper.COLUMN_CODE, newCourse.getCode());
 		values.put(CourseSqliteHelper.COLUMN_INSTRUCTOR, newCourse.getInstructor());
 

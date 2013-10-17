@@ -37,8 +37,7 @@
             android:id="@+id/imgbtnEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tvInstructor"
-            android:layout_below="@+id/tvCourseName"
+            android:layout_below="@+id/tvInstructor"
             android:layout_toLeftOf="@+id/imgbtnDelete"
             android:src="@drawable/edit" />
 
@@ -47,8 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/tvInstructor"
-            android:layout_below="@+id/tvCourseName"
+            android:layout_below="@+id/tvInstructor"
             android:src="@drawable/delete" />
         
 </RelativeLayout>
