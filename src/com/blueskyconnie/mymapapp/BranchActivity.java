@@ -23,15 +23,16 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class BranchActivity extends FragmentActivity {
 
-	private GoogleMap gMap;
-	private static LatLng CSW_LATLNG = new LatLng(22.337314,114.153761); 
-	private static LatLng WC_LATLNG = new LatLng(22.278315,114.174618); 
-	private static LatLng WC_MTR_LATLNG = new LatLng(22.277719,114.173327);
-	private static LatLng CSW_MTR_LATLNG = new LatLng(22.335766,114.155437);
+	private static final LatLng CSW_LATLNG = new LatLng(22.337314,114.153761); 
+	private static final LatLng WC_LATLNG = new LatLng(22.278315,114.174618); 
+	private static final LatLng WC_MTR_LATLNG = new LatLng(22.277719,114.173327);
+	private static final LatLng CSW_MTR_LATLNG = new LatLng(22.335766,114.155437);
 	                                                  
-	private final static int imgPin = R.drawable.pin;
+	private static final int imgPin = R.drawable.pin;
 	private static final int RQS_GooglePlayServices = 1;
-	
+
+	private GoogleMap gMap;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -112,7 +113,8 @@ public class BranchActivity extends FragmentActivity {
 				});
 			
 			} else {
-				GooglePlayServicesUtil.getErrorDialog(resultCode, this, RQS_GooglePlayServices).show();
+				GooglePlayServicesUtil.getErrorDialog(resultCode, this, RQS_GooglePlayServices)
+					.show();
 			}
 		}
 	}
