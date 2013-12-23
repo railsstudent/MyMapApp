@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,6 +30,7 @@ public class BranchActivity extends FragmentActivity {
 	private static LatLng CSW_MTR_LATLNG = new LatLng(22.335766,114.155437);
 	                                                  
 	private final static int imgPin = R.drawable.pin;
+	private static final int RQS_GooglePlayServices = 1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,78 +38,82 @@ public class BranchActivity extends FragmentActivity {
 		
 		setContentView(R.layout.activity_branch);
 	
-		GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
-
+		int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+		if (resultCode == ConnectionResult.SUCCESS) {
 		
-		gMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-		
-		// add four markers
-		if (gMap != null) {
+			gMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 			
-			gMap.moveCamera(CameraUpdateFactory.newLatLng(CSW_LATLNG));
-			gMap.animateCamera(CameraUpdateFactory.zoomTo(17));
-
-			gMap.addMarker(new MarkerOptions().title(this.getString(R.string.csw_title))
-					.position(CSW_LATLNG)
-					.snippet(this.getString(R.string.csw_address))
-					.icon(BitmapDescriptorFactory.fromResource(imgPin)));
-
-			gMap.addMarker(new MarkerOptions().title(this.getString(R.string.nearest_mtr_exit))
-					.position(CSW_MTR_LATLNG)
-					.snippet(this.getString(R.string.csw_mtr_address))
-					.icon(BitmapDescriptorFactory.fromResource(imgPin)));
-			
-			gMap.addMarker(new MarkerOptions().title(this.getString(R.string.wc_title))
-					.position(WC_LATLNG)
-					.snippet(this.getString(R.string.wc_address))
-					.icon(BitmapDescriptorFactory.fromResource(imgPin)));
-
-			gMap.addMarker(new MarkerOptions().title(this.getString(R.string.nearest_mtr_exit))
-					.position(WC_MTR_LATLNG)
-					.snippet(this.getString(R.string.wc_mtr_address))
-					.icon(BitmapDescriptorFactory.fromResource(imgPin)));
-			
-			gMap.setMyLocationEnabled(true);
-			gMap.setOnMarkerClickListener(new OnMarkerClickListener(){
-				public boolean onMarkerClick(Marker marker) {
-					marker.showInfoWindow();
-					return false;
-				}
-			});	
-			
-			gMap.setInfoWindowAdapter(new InfoWindowAdapter(){
-
-				@Override
-				public View getInfoContents(Marker marker) {
-					View view = (View) getLayoutInflater().inflate(R.layout.layout_main_popup, null);
-					ImageView imgView = (ImageView) view.findViewById(R.id.imgview);
-					TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-					TextView tvSnippet = (TextView) view.findViewById(R.id.tvSnippet);
-					
-					String marker_title = marker.getTitle();
-					String marker_snippet = marker.getSnippet();
-					
-					Resources res = BranchActivity.this.getResources();
-					if (marker_title.equals(res.getString(R.string.csw_title))) {
-						imgView.setImageResource(R.drawable.tradesquare);
-						tvTitle.setText(marker_title);
-						tvSnippet.setText(marker_snippet);
-					} else if (marker_title.equals(res.getString(R.string.wc_title))) {
-						imgView.setImageResource(R.drawable.feva);
-						tvTitle.setText(marker_title);
-						tvSnippet.setText(marker_snippet);
-					} else if (marker_title.equals(res.getString(R.string.nearest_mtr_exit))) {
-						imgView.setImageResource(R.drawable.mtr);
-						tvTitle.setText(marker_title);
-						tvSnippet.setText(marker_snippet);
+			// add four markers
+			if (gMap != null) {
+				
+				gMap.moveCamera(CameraUpdateFactory.newLatLng(CSW_LATLNG));
+				gMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+	
+				gMap.addMarker(new MarkerOptions().title(this.getString(R.string.csw_title))
+						.position(CSW_LATLNG)
+						.snippet(this.getString(R.string.csw_address))
+						.icon(BitmapDescriptorFactory.fromResource(imgPin)));
+	
+				gMap.addMarker(new MarkerOptions().title(this.getString(R.string.nearest_mtr_exit))
+						.position(CSW_MTR_LATLNG)
+						.snippet(this.getString(R.string.csw_mtr_address))
+						.icon(BitmapDescriptorFactory.fromResource(imgPin)));
+				
+				gMap.addMarker(new MarkerOptions().title(this.getString(R.string.wc_title))
+						.position(WC_LATLNG)
+						.snippet(this.getString(R.string.wc_address))
+						.icon(BitmapDescriptorFactory.fromResource(imgPin)));
+	
+				gMap.addMarker(new MarkerOptions().title(this.getString(R.string.nearest_mtr_exit))
+						.position(WC_MTR_LATLNG)
+						.snippet(this.getString(R.string.wc_mtr_address))
+						.icon(BitmapDescriptorFactory.fromResource(imgPin)));
+				
+				gMap.setMyLocationEnabled(true);
+				gMap.setOnMarkerClickListener(new OnMarkerClickListener(){
+					public boolean onMarkerClick(Marker marker) {
+						marker.showInfoWindow();
+						return false;
 					}
-					return view;
-				}
-
-				public View getInfoWindow(Marker marker) {
-					return null;
-				}
-			});
+				});	
+				
+				gMap.setInfoWindowAdapter(new InfoWindowAdapter(){
+	
+					@Override
+					public View getInfoContents(Marker marker) {
+						View view = (View) getLayoutInflater().inflate(R.layout.layout_main_popup, null);
+						ImageView imgView = (ImageView) view.findViewById(R.id.imgview);
+						TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
+						TextView tvSnippet = (TextView) view.findViewById(R.id.tvSnippet);
+						
+						String marker_title = marker.getTitle();
+						String marker_snippet = marker.getSnippet();
+						
+						Resources res = BranchActivity.this.getResources();
+						if (marker_title.equals(res.getString(R.string.csw_title))) {
+							imgView.setImageResource(R.drawable.tradesquare);
+							tvTitle.setText(marker_title);
+							tvSnippet.setText(marker_snippet);
+						} else if (marker_title.equals(res.getString(R.string.wc_title))) {
+							imgView.setImageResource(R.drawable.feva);
+							tvTitle.setText(marker_title);
+							tvSnippet.setText(marker_snippet);
+						} else if (marker_title.equals(res.getString(R.string.nearest_mtr_exit))) {
+							imgView.setImageResource(R.drawable.mtr);
+							tvTitle.setText(marker_title);
+							tvSnippet.setText(marker_snippet);
+						}
+						return view;
+					}
+	
+					public View getInfoWindow(Marker marker) {
+						return null;
+					}
+				});
+			
+			} else {
+				GooglePlayServicesUtil.getErrorDialog(resultCode, this, RQS_GooglePlayServices).show();
+			}
 		}
 	}
 	
